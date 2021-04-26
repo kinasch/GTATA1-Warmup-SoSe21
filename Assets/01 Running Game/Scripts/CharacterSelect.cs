@@ -14,8 +14,9 @@ public class CharacterSelect : MonoBehaviour
     public void UpdateSpriteModel(int increment)
     {
         indexOfSpriteArray += increment;
-        indexOfSpriteArray = indexOfSpriteArray !< 0 ? 0 : indexOfSpriteArray;
-        indexOfSpriteArray = indexOfSpriteArray !> characterSprite.Length ? indexOfSpriteArray : 0;
+        indexOfSpriteArray = indexOfSpriteArray < 0 ? characterSprite.Length-1 : indexOfSpriteArray;
+        indexOfSpriteArray = indexOfSpriteArray >= characterSprite.Length ?  0 : indexOfSpriteArray;
         characterSpriteModel.GetComponent<SpriteRenderer>().sprite = characterSprite[indexOfSpriteArray];
+        Debug.Log(indexOfSpriteArray);
     }
 }
