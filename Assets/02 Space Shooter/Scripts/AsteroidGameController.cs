@@ -127,6 +127,21 @@ namespace Scripts
             // oh, also get rid of the laser now
             Destroy(laser.gameObject);
         }
+        
+        public void PlayerIntersection(SpriteRenderer player)
+        {
+            // go through all asteroids, check if they intersect with a laser and stop after the first
+            var asteroid = activeAsteroids
+                .FirstOrDefault(x => x.GetComponent<SpriteRenderer>().bounds.Intersects(player.bounds));
+            
+            // premature exit: this laser hasn't hit anything
+            if (asteroid == null)
+            {
+                return;
+            }
+            
+            Debug.Log("I got hit.");
+        }
 
         public void ShipIntersection(SpriteRenderer ship)
         {
