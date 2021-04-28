@@ -9,15 +9,19 @@ namespace Scripts
     /// </summary>
     internal class PlayerShip : MonoBehaviour
     {
-        private static AsteroidGameController _runGameController;
-        public MovementObject movementObject;
-        public SpriteRenderer shipSprite;
         [SerializeField] private int hitpoints=50;
+        
+        private static AsteroidGameController _runGameController;
         private float invincibilityTime = 1.2f;
         private bool isInvincible = false;
-
+        private int hp;
+        
+        public MovementObject movementObject;
+        public SpriteRenderer shipSprite;
+        
         private void Start()
         {
+            hp = hitpoints;
             if (_runGameController == null) _runGameController = FindObjectOfType<AsteroidGameController>();
         }
         
@@ -25,8 +29,8 @@ namespace Scripts
         {
             if (_runGameController.PlayerIntersection(shipSprite) && !isInvincible)
             {
-                hitpoints--;
-                Debug.Log("HP: "+hitpoints);
+                hp--;
+                Debug.Log("HP: "+hp);
 
                 StartCoroutine(Invincibility());
             }
@@ -45,6 +49,16 @@ namespace Scripts
 
             isInvincible = false;
             Debug.Log("Player is no longer invincible!");
+        }
+
+        public int GetHitPoints()
+        {
+            return hp;
+        }
+
+        public void ResetHitPoints()
+        {
+            this.hp = hitpoints;
         }
     }
 }
