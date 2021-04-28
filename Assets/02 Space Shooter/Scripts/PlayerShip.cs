@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Scripts
@@ -11,6 +12,9 @@ namespace Scripts
         private static AsteroidGameController _runGameController;
         public MovementObject movementObject;
         public SpriteRenderer shipSprite;
+        [SerializeField] private int hitpoints=50;
+        private float invincibilityTime = 1.2f;
+        private bool isInvincible = false;
 
         private void Start()
         {
@@ -19,7 +23,28 @@ namespace Scripts
         
         private void LateUpdate()
         {
-            _runGameController.PlayerIntersection(shipSprite);
+            if (_runGameController.PlayerIntersection(shipSprite) && !isInvincible)
+            {
+                hitpoints--;
+                Debug.Log("HP: "+hitpoints);
+
+                StartCoroutine(Invincibility());
+            }
+        }
+
+        private IEnumerator Invincibility()
+        {
+            Debug.Log("Player turned invincible!");
+            isInvincible = true;
+            
+            shipSprite.color = new Color(255,255,255,0.5f);
+
+            yield return new WaitForSeconds(invincibilityTime);
+            
+            shipSprite.color = new Color(255,255,255,1f);
+
+            isInvincible = false;
+            Debug.Log("Player is no longer invincible!");
         }
     }
 }

@@ -20,6 +20,8 @@ namespace Scripts
 
         private List<Asteroid> activeAsteroids;
         private Random random;
+        // This asteroid saves the last asteroid the player was hit by to prevent multiple hit points being subtracted
+        private Asteroid hitDetectionWithPlayer;
 
         private void Start()
         {
@@ -128,19 +130,27 @@ namespace Scripts
             Destroy(laser.gameObject);
         }
         
-        public void PlayerIntersection(SpriteRenderer player)
+        public bool PlayerIntersection(SpriteRenderer player)
         {
             // go through all asteroids, check if they intersect with a laser and stop after the first
             var asteroid = activeAsteroids
                 .FirstOrDefault(x => x.GetComponent<SpriteRenderer>().bounds.Intersects(player.bounds));
             
-            // premature exit: this laser hasn't hit anything
+            // premature exit: the player hasn't hit anything
             if (asteroid == null)
             {
-                return;
+                hitDetectionWithPlayer = null;
+                return false;
             }
+            // premature exit: the player hit the same asteroid in a row
+            if (asteroid == hitDetectionWithPlayer)
+            {
+                return false;
+            }
+
+            hitDetectionWithPlayer = asteroid;
             
-            Debug.Log("I got hit.");
+            return true;
         }
 
         public void ShipIntersection(SpriteRenderer ship)

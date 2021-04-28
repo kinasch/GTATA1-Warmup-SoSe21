@@ -539,8 +539,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementObject: {fileID: 1493469881}
   shipSprite: {fileID: 1493469879}
-  shipController: {fileID: 1493469878}
-  shipGun: {fileID: 1493469883}
+  hitpoints: 10
 --- !u!114 &1493469883
 MonoBehaviour:
   m_ObjectHideFlags: 0
