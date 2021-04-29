@@ -130,9 +130,15 @@ namespace Scripts
             Destroy(laser.gameObject);
         }
         
+        /// 
+        /// This method is very similar to the method LaserInteraction
+        /// 
+        /// Checks if the player sprite is intersecting with any asteroid sprite
+        /// and returns the result to the player
+        /// 
         public bool PlayerIntersection(SpriteRenderer player)
         {
-            // go through all asteroids, check if they intersect with a laser and stop after the first
+            // go through all asteroids, check if they intersect with the player and stop after the first
             var asteroid = activeAsteroids
                 .FirstOrDefault(x => x.GetComponent<SpriteRenderer>().bounds.Intersects(player.bounds));
             
@@ -147,7 +153,6 @@ namespace Scripts
             {
                 return false;
             }
-
             hitDetectionWithPlayer = asteroid;
             
             return true;
@@ -183,6 +188,11 @@ namespace Scripts
 
             maximum.Scale(new Vector3(RandomValue(), RandomValue(), RandomValue()));
             return maximum;
+        }
+
+        public List<Asteroid> GetActiveAsteroids()
+        {
+            return activeAsteroids;
         }
     }
 }
