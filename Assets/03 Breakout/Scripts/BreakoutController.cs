@@ -9,6 +9,7 @@ namespace Scripts
         [SerializeField] [Range(0, 1000)] private float speed;
         [SerializeField] [Range(0, 384)] private float pedalSize;
         [SerializeField] private List<Ball> balls;
+        [SerializeField] private EndScreenManager endScreenManager;
         private CapsuleCollider2D collider;
         private RectTransform rectTransform;
         private Rigidbody2D rigidBody;
@@ -45,7 +46,7 @@ namespace Scripts
             {
                 // maybe this is a good entry point for a loss system, similarly no bricks -> win
                 Debug.Log("Game Over!");
-                Time.timeScale = 0f;
+                endScreenManager.EndScreenLose();
             }
         }
 
@@ -80,6 +81,18 @@ namespace Scripts
                         ball.transform.position = balls[0].transform.position;
                         ball.RigidBody.velocity = Vector2.Reflect(balls[0].RigidBody.velocity, Vector2.up);
                         balls.Add(ball);
+                        break;
+                    case UpgradeType.BiggerBall:
+                        foreach (Ball tempBall in balls)
+                        {
+                            tempBall.transform.localScale *= 2f;
+                        }
+                        break;
+                    case UpgradeType.SmallerBall:
+                        foreach (Ball tempBall in balls)
+                        {
+                            tempBall.transform.localScale *= 0.5f;
+                        }
                         break;
                 }
 

@@ -21,7 +21,7 @@ namespace Scripts
             RebuildStarfield();
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             // every time the screen changes, it's necessary to rebuild the render texture
             if (screenSize.x != Screen.width || screenSize.y != Screen.height)
@@ -29,7 +29,7 @@ namespace Scripts
                 RebuildStarfield();
             }
             // add offset based on the velocity (not on world-space coordinates, which are modulo'd
-            offset += ship.movementObject.CurrentVelocity;
+            offset += ship.movementObject.CurrentVelocity*10;
             // set the value in the shader
             targetRenderer.material.SetVector(Offset, offset / 100);
         }

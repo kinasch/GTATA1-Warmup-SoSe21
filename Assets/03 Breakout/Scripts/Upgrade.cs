@@ -21,19 +21,39 @@ namespace Scripts
             GetComponent<Image>().sprite = spriteAssignment.FirstOrDefault(x => x.type == upgradeType)?.sprite;
         }
 
+        private void Update()
+        {
+            if (transform.position.y <= -100)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+
         private void RandomizeType()
         {
             var number = Random.value;
 
-            if (number < 0.33f)
+            if (number < 0.2f)
             {
                 upgradeType = UpgradeType.BiggerPedal;
                 return;
             }
 
-            if (number < 0.66f)
+            if (number < 0.4f)
             {
                 upgradeType = UpgradeType.SmallerPedal;
+                return;
+            }
+            
+            if (number < 0.6f)
+            {
+                upgradeType = UpgradeType.SmallerBall;
+                return;
+            }
+            
+            if (number < 0.8f)
+            {
+                upgradeType = UpgradeType.BiggerBall;
                 return;
             }
 
