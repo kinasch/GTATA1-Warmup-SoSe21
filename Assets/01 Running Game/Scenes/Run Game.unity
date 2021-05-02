@@ -194,7 +194,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9183657544205018418, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
+  m_Sprite: {fileID: 1724406721867405357, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -527,12 +527,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterSpriteModel: {fileID: 71018111}
   characterSprite:
+  - {fileID: 1724406721867405357, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
+  - {fileID: -4970067154865029653, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
   - {fileID: -9183657544205018418, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
-  - {fileID: 676389156815778814, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
-  - {fileID: 2128294600738411159, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
-  - {fileID: -7424527936417855760, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
-  - {fileID: -8619585373112257217, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
+  - {fileID: 1634769560281053603, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
+  - {fileID: 8057209302347806090, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
   gameControllerInstance: {fileID: 1664542373}
+  animationHandling: {fileID: 721517433}
 --- !u!1 &490508151
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,6 +730,73 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1376731757}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &721517432
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 721517434}
+  - component: {fileID: 721517433}
+  m_Layer: 0
+  m_Name: AnimationHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &721517433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721517432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1164d1dc2740333408503da317d9ccf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterSpriteCollection:
+  - {fileID: 1724406721867405357, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
+  - {fileID: -6784488196640772561, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
+  - {fileID: -4970067154865029653, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
+  - {fileID: 3043803401794877445, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
+  - {fileID: -9183657544205018418, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
+  - {fileID: -4158381282897734576, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
+  - {fileID: 1634769560281053603, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
+  - {fileID: -4404043426273885130, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
+  - {fileID: 8057209302347806090, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
+  - {fileID: -5006229103885450298, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
+  characterJumpCollection:
+  - {fileID: 2772701748520179734, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
+  - {fileID: 6481843683198900548, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
+  - {fileID: -2452500989543857958, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
+  - {fileID: 5343863954073821178, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
+  - {fileID: 4723573226442331577, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
+  - {fileID: 6443106307679986694, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
+  - {fileID: -1418923579919195282, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
+  - {fileID: -1328245000158916608, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
+  - {fileID: 3461437795501700288, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
+  - {fileID: 4068956031141271483, guid: fcd1812c475621b47b85bf35aa3bc31b, type: 3}
+  characterSpriteModel: {fileID: 71018111}
+  characterController: {fileID: 1376731756}
+--- !u!4 &721517434
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721517432}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.991633, y: 2.1671953, z: -2984.7012}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &985183758
 GameObject:

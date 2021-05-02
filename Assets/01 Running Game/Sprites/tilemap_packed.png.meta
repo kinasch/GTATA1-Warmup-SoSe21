@@ -64,10 +64,10 @@ TextureImporter:
     second: tilemap_packed_19
   - first:
       213: 1724406721867405357
-    second: tilemap_packed_20
+    second: Green Walk 1
   - first:
       213: 2772701748520179734
-    second: tilemap_packed_21
+    second: Green Jump 1
   - first:
       213: -8536881040180527926
     second: tilemap_packed_22
@@ -85,13 +85,13 @@ TextureImporter:
     second: tilemap_packed_26
   - first:
       213: 6481843683198900548
-    second: tilemap_packed_27
+    second: Green Jump 2
   - first:
       213: 676389156815778814
     second: tilemap_packed_28
   - first:
       213: -6784488196640772561
-    second: tilemap_packed_29
+    second: Green Walk 4
   - first:
       213: -1922718596493688381
     second: tilemap_packed_30
@@ -154,10 +154,10 @@ TextureImporter:
     second: tilemap_packed_49
   - first:
       213: -4970067154865029653
-    second: tilemap_packed_50
+    second: Blue Walk 1
   - first:
       213: -2452500989543857958
-    second: tilemap_packed_51
+    second: Blue Jump 1
   - first:
       213: -5337296085697385273
     second: tilemap_packed_52
@@ -175,13 +175,13 @@ TextureImporter:
     second: tilemap_packed_56
   - first:
       213: 5343863954073821178
-    second: tilemap_packed_57
+    second: Blue Jump 2
   - first:
       213: 2128294600738411159
     second: tilemap_packed_58
   - first:
       213: 3043803401794877445
-    second: tilemap_packed_59
+    second: Blue Walk 4
   - first:
       213: 4549779110591665459
     second: tilemap_packed_60
@@ -247,7 +247,7 @@ TextureImporter:
     second: Pink Guy Walk 1
   - first:
       213: 4723573226442331577
-    second: Pink Guy 2
+    second: Pink Jump 1
   - first:
       213: 921575226733875989
     second: Pink Guy Ducking
@@ -265,7 +265,7 @@ TextureImporter:
     second: tilemap_packed_86
   - first:
       213: 6443106307679986694
-    second: tilemap_packed_87
+    second: Pink Jump 2
   - first:
       213: -8577901098906674100
     second: Pink Guy Walk3
@@ -334,10 +334,10 @@ TextureImporter:
     second: tilemap_packed_109
   - first:
       213: 1634769560281053603
-    second: tilemap_packed_110
+    second: Yellow Walk 1
   - first:
       213: -1418923579919195282
-    second: tilemap_packed_111
+    second: Yellow Jump 1
   - first:
       213: -18749464724257583
     second: tilemap_packed_112
@@ -355,13 +355,13 @@ TextureImporter:
     second: tilemap_packed_116
   - first:
       213: -1328245000158916608
-    second: tilemap_packed_117
+    second: Yellow Jump 2
   - first:
       213: -7424527936417855760
     second: tilemap_packed_118
   - first:
       213: -4404043426273885130
-    second: tilemap_packed_119
+    second: Yellow Walk 4
   - first:
       213: 4224408330027904234
     second: Grass Patch Endcap
@@ -424,10 +424,10 @@ TextureImporter:
     second: tilemap_packed_139
   - first:
       213: 8057209302347806090
-    second: tilemap_packed_140
+    second: Beige Walk 1
   - first:
       213: 3461437795501700288
-    second: tilemap_packed_141
+    second: Beige Jump 1
   - first:
       213: -440023909301632197
     second: tilemap_packed_142
@@ -445,13 +445,13 @@ TextureImporter:
     second: tilemap_packed_146
   - first:
       213: 4068956031141271483
-    second: tilemap_packed_147
+    second: Beige Jump 2
   - first:
       213: -8619585373112257217
     second: tilemap_packed_148
   - first:
       213: -5006229103885450298
-    second: tilemap_packed_149
+    second: Beige Walk 4
   - first:
       213: -8176512502366645725
     second: Grass Patch Begin Cap
@@ -3097,7 +3097,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_packed_20
+      name: Green Walk 1
       rect:
         serializedVersion: 2
         x: 420
@@ -3118,7 +3118,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_packed_21
+      name: Green Jump 1
       rect:
         serializedVersion: 2
         x: 441
@@ -3244,7 +3244,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_packed_27
+      name: Green Jump 2
       rect:
         serializedVersion: 2
         x: 567
@@ -3286,7 +3286,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_packed_29
+      name: Green Walk 4
       rect:
         serializedVersion: 2
         x: 609
@@ -3727,7 +3727,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_packed_50
+      name: Blue Walk 1
       rect:
         serializedVersion: 2
         x: 420
@@ -3748,7 +3748,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_packed_51
+      name: Blue Jump 1
       rect:
         serializedVersion: 2
         x: 441
@@ -3874,7 +3874,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_packed_57
+      name: Blue Jump 2
       rect:
         serializedVersion: 2
         x: 567
@@ -3916,7 +3916,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_packed_59
+      name: Blue Walk 4
       rect:
         serializedVersion: 2
         x: 609
@@ -4378,7 +4378,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pink Guy 2
+      name: Pink Jump 1
       rect:
         serializedVersion: 2
         x: 441
@@ -4504,7 +4504,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_packed_87
+      name: Pink Jump 2
       rect:
         serializedVersion: 2
         x: 567
@@ -4987,7 +4987,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_packed_110
+      name: Yellow Walk 1
       rect:
         serializedVersion: 2
         x: 420
@@ -5008,7 +5008,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_packed_111
+      name: Yellow Jump 1
       rect:
         serializedVersion: 2
         x: 441
@@ -5134,7 +5134,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_packed_117
+      name: Yellow Jump 2
       rect:
         serializedVersion: 2
         x: 567
@@ -5176,7 +5176,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_packed_119
+      name: Yellow Walk 4
       rect:
         serializedVersion: 2
         x: 609
@@ -5617,7 +5617,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_packed_140
+      name: Beige Walk 1
       rect:
         serializedVersion: 2
         x: 420
@@ -5638,7 +5638,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_packed_141
+      name: Beige Jump 1
       rect:
         serializedVersion: 2
         x: 441
@@ -5764,7 +5764,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_packed_147
+      name: Beige Jump 2
       rect:
         serializedVersion: 2
         x: 567
@@ -5806,7 +5806,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_packed_149
+      name: Beige Walk 4
       rect:
         serializedVersion: 2
         x: 609

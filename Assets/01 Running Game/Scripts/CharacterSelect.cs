@@ -8,6 +8,7 @@ public class CharacterSelect : MonoBehaviour
     [SerializeField] GameObject characterSpriteModel;
     [SerializeField] private Sprite[] characterSprite;
     [SerializeField] private RunGameController gameControllerInstance;
+    [SerializeField] private AnimationHandling animationHandling;
 
     private int indexOfSpriteArray = 0;
 
@@ -20,6 +21,7 @@ public class CharacterSelect : MonoBehaviour
             indexOfSpriteArray = indexOfSpriteArray < 0 ? characterSprite.Length - 1 : indexOfSpriteArray;
             indexOfSpriteArray = indexOfSpriteArray >= characterSprite.Length ? 0 : indexOfSpriteArray;
             characterSpriteModel.GetComponent<SpriteRenderer>().sprite = characterSprite[indexOfSpriteArray];
+            animationHandling.ChangeSprite(indexOfSpriteArray*2);
         }
     }
 }

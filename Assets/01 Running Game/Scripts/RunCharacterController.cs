@@ -93,5 +93,15 @@ namespace Scripts
                 yield return null;
             }
         }
+
+        public bool GetCanJump()
+        {
+            return canJump;
+        }
+
+        public double GetCharacterY()
+        {
+            return character.transform.position.y;
+        }
     }
 }
