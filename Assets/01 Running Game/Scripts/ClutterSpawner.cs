@@ -48,11 +48,12 @@ namespace Scripts
             }
 
             var groundPosition = mainCamera.transform.position + new Vector3(0, minMaxHeight.x, 0);
-            var boxSize = new Vector3(mainCamera.orthographicSize * 2 * mainCamera.aspect, minMaxHeight.y - minMaxHeight.x);
+            var boxSize = new Vector3(mainCamera.orthographicSize * 2 * mainCamera.aspect,
+                minMaxHeight.y - minMaxHeight.x);
             Gizmos.color = Color.blue;
             Gizmos.DrawWireCube(groundPosition, boxSize);
         }
-        
+
         /// <summary>
         /// Spawns repeatedly clutter outside of the camera rectangle
         /// 
@@ -74,9 +75,9 @@ namespace Scripts
             var go = Instantiate(clutterPrefab, transform);
             // select a random sprite
             var clutterSprite = clutterSprites[(int) (Random.value * clutterSprites.Length)];
-            
+
             var xPosition = 0f;
-            
+
             var horizontalCameraSize = mainCamera.orthographicSize * 2 * mainCamera.aspect;
             // either randomly within the camera width or just outside of it
             xPosition += outsideCamera

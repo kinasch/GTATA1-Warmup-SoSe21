@@ -14,8 +14,9 @@ namespace Scripts
     /// </summary>
     public class RunGameManager : MonoBehaviour
     {
+        // Used to play sound effects.
         [SerializeField] private SoundHandling soundHandling;
-        
+
         [SerializeField] private RunCharacterController runCharacterController;
         [SerializeField] private RunGameController gameController;
         [SerializeField] private ScreenHider screenHider;
@@ -44,6 +45,7 @@ namespace Scripts
             // when the game has started, we're seeking if the character bounding box hit a ground tile
             if (hasStarted && gameController.TileRows.Any(IntersectionHit))
             {
+                // Plays a sound indicating a collision with a high Tile.
                 soundHandling.CrashSound();
                 // A coroutine will be discussed a bit later in the lecture, but it's exactly what the name says:
                 // 
@@ -83,6 +85,7 @@ namespace Scripts
             {
                 return false;
             }
+
             // does a characters bounding box intersects enough of a tiles bounding box? 
             return Intersection.NormalizedIntersectionAmount(runCharacterController, row) > hitThreshold;
         }

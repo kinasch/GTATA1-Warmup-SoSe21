@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class AnimationHandling : MonoBehaviour
 {
-    
     [SerializeField] private Sprite[] characterSpriteCollection;
     [SerializeField] private Sprite[] characterJumpCollection;
     [SerializeField] private GameObject characterSpriteModel;
@@ -18,7 +17,7 @@ public class AnimationHandling : MonoBehaviour
     private Sprite[] currentJumpSprite = new Sprite[2];
 
     private double lastCharacterY;
-    
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -45,6 +44,7 @@ public class AnimationHandling : MonoBehaviour
             {
                 currentSpriteForJump = currentJumpSprite[1];
             }
+
             spriteRenderer.sprite = currentSpriteForJump;
 
             lastCharacterY = characterController.GetCharacterY();
@@ -54,9 +54,9 @@ public class AnimationHandling : MonoBehaviour
     public void ChangeSprite(int pos)
     {
         currentCharacterSprite[0] = characterSpriteCollection[pos];
-        currentCharacterSprite[1] = characterSpriteCollection[pos+1];
+        currentCharacterSprite[1] = characterSpriteCollection[pos + 1];
 
         currentJumpSprite[0] = characterJumpCollection[pos];
-        currentJumpSprite[1] = characterJumpCollection[pos+1];
+        currentJumpSprite[1] = characterJumpCollection[pos + 1];
     }
 }

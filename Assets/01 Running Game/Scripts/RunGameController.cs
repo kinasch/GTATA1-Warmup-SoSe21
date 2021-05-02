@@ -10,17 +10,19 @@ namespace Scripts
     /// </summary>
     public class RunGameController : MonoBehaviour
     {
-        public IEnumerable<TileRow> TileRows => rows; 
+        public IEnumerable<TileRow> TileRows => rows;
         public bool hasGameStarted;
 
         [SerializeField] private Vector2 minMaxGameSpeed;
         [SerializeField] private Vector2Int minMaxGridHeight;
         [SerializeField] private float spawnFirstRowLocation;
         [SerializeField] private TileRow rowPrefab;
+
         /// <summary>
         /// The grid size is the world size of a Tile, which can be used to find the center for the next Tile
         /// </summary>
         private Vector2 gridSize;
+
         private float currentGameSpeed;
         private Queue<TileRow> rows;
         private float startTime;
@@ -85,6 +87,7 @@ namespace Scripts
             {
                 return;
             }
+
             // the time a new game has begun
             var gameStartTime = (Time.time - startTime);
             var delta = minMaxGameSpeed.y - minMaxGameSpeed.x;
@@ -130,6 +133,7 @@ namespace Scripts
             {
                 return false;
             }
+
             // take the last 3 entries, assign them 1 or 0 if they're high or low, take the Min of two adjacent tiles
             var results = rows
                 .Skip(rows.Count - 4)

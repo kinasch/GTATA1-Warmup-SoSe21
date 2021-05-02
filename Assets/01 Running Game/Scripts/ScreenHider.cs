@@ -43,7 +43,7 @@ namespace Scripts
         {
             targetVisibility = 1f;
         }
-        
+
         /// <summary>
         /// Hide the target screen
         /// </summary>

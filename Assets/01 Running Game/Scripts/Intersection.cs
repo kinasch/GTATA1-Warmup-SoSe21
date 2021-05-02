@@ -3,7 +3,6 @@ using static Unity.Mathematics.math;
 
 namespace Scripts
 {
-
     /// <summary>
     /// Helper class for sprite/bounds like intersections
     /// </summary>
@@ -25,7 +24,7 @@ namespace Scripts
             var characterExtents = character.CharacterSprite.bounds.extents;
             return new Bounds(character.Transform.position, characterExtents);
         }
-        
+
         /// <summary>
         /// Returns the percentage of an intersection of the character sprite with a tile.
         /// </summary>
@@ -36,8 +35,10 @@ namespace Scripts
             var characterBounds = RetrieveBounds(character);
 
             // calculate the x/y overlap
-            var xOverlap = max(0, min(tileBounds.max.x, characterBounds.max.x) - max(tileBounds.min.x, characterBounds.min.x));
-            var yOverlap = max(0, min(tileBounds.max.y, characterBounds.max.y) - max(tileBounds.min.y, characterBounds.min.y));
+            var xOverlap = max(0,
+                min(tileBounds.max.x, characterBounds.max.x) - max(tileBounds.min.x, characterBounds.min.x));
+            var yOverlap = max(0,
+                min(tileBounds.max.y, characterBounds.max.y) - max(tileBounds.min.y, characterBounds.min.y));
             // an overlap is also just a rectangle - so calculate the area occupied 
             var overlapArea = xOverlap * yOverlap;
             // similarly calculate the area of the character occupied

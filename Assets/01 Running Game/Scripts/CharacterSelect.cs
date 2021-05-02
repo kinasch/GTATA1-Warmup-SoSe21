@@ -21,7 +21,7 @@ public class CharacterSelect : MonoBehaviour
             indexOfSpriteArray = indexOfSpriteArray < 0 ? characterSprite.Length - 1 : indexOfSpriteArray;
             indexOfSpriteArray = indexOfSpriteArray >= characterSprite.Length ? 0 : indexOfSpriteArray;
             characterSpriteModel.GetComponent<SpriteRenderer>().sprite = characterSprite[indexOfSpriteArray];
-            animationHandling.ChangeSprite(indexOfSpriteArray*2);
+            animationHandling.ChangeSprite(indexOfSpriteArray * 2);
         }
     }
 }

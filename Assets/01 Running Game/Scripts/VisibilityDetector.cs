@@ -21,7 +21,7 @@ namespace Scripts
             onBecameInvisible?.Invoke();
         }
 
-        
+
         /// <summary>
         /// OnBecameVisible is a Unity runtime function called when a GameObject with a Renderer is rendered again
         /// it is called once

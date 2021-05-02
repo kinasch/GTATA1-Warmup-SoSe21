@@ -9,7 +9,7 @@ namespace Scripts
     public class TileRow : MonoBehaviour
     {
         [SerializeField] private VisibilityDetector visibilityDetector;
-        [SerializeField] private SpriteRenderer topSprite; 
+        [SerializeField] private SpriteRenderer topSprite;
         public bool isInHighPosition;
         public VisibilityDetector VisibilityDetector => visibilityDetector;
         public SpriteRenderer TopSprite => topSprite;

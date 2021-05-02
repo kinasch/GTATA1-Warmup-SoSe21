@@ -12,27 +12,32 @@ namespace Scripts
     {
         public Transform Transform => character;
         public SpriteRenderer CharacterSprite => characterSprite;
+
         /// <summary>
         /// Since the Character controller takes responsibility for triggering Input events, it also emits an
         /// event when it does so
         /// </summary>
         public Action onJump;
 
+        // Used to play sound effects.
         [SerializeField] private SoundHandling soundHandling;
-        
+
         [SerializeField] private float jumpHeight;
         [SerializeField] private float jumpDuration;
+
         /// <summary>
         /// Unity handles Arrays and Lists in the inspector correctly (but not Maps, Dictionaries or other Collections)
         /// </summary>
         [SerializeField] private KeyCode[] jumpKeys;
+
         /// <summary>
         /// We don't require anything else from the Character than its transform
         /// </summary>
         [SerializeField] private Transform character;
+
         [SerializeField] private SpriteRenderer characterSprite;
         [SerializeField] private AnimationCurve jumpPosition;
-        
+
         private bool canJump = true;
 
         /// <summary>
@@ -45,10 +50,13 @@ namespace Scripts
             {
                 return;
             }
+
             // here the input event counts - if there is any button pressed that were defined as jump keys, trigger a jump
             if (jumpKeys.Any(x => Input.GetKeyDown(x)))
-            {   // first we disable the jump, then start the Coroutine that handles the jump and invoke the event
+            {
+                // first we disable the jump, then start the Coroutine that handles the jump and invoke the event
                 canJump = false;
+                // Play the sound indicating a jump.
                 soundHandling.JumpSound();
                 StartCoroutine(JumpRoutine());
                 onJump?.Invoke();
@@ -90,19 +98,27 @@ namespace Scripts
                 // we enable jumping again after we're almost done to remove some "stuck" behaviour when landing down
                 if (sampleTime > 0.95f)
                 {
+                    // Play the sound indicating a landing.
                     soundHandling.LandingSound();
                     canJump = true;
                 }
+
                 // yield return null waits a single frame
                 yield return null;
             }
         }
 
+        /// <summary>
+        /// This method is used to check whether the player is currently jumping outside of this script.
+        /// </summary>
         public bool GetCanJump()
         {
             return canJump;
         }
 
+        /// <summary>
+        /// This method returns the characters height related to the ground.
+        /// </summary>
         public double GetCharacterY()
         {
             return character.transform.position.y;
