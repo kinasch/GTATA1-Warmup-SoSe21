@@ -1018,7 +1018,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserPrefab: {fileID: 1733002430547660359, guid: 90cf3b4d06e7d8f458d03e19e0dac9d7, type: 3}
-  upgradePrefab: {fileID: -105663533570336533, guid: 90f8b72f42dba4a4f8d9cd5b03f8ee52, type: 3}
+  upgradePrefab: {fileID: -6703069114930439922, guid: c69359ab3b9ca3943b04ab1033b936af, type: 3}
   playerShip: {fileID: 1493469882}
 --- !u!4 &1961063971
 Transform:

@@ -64,6 +64,8 @@ namespace Scripts
         public void AddToHitPoints(int additionalHP)
         {
             hp += additionalHP;
+            hp = hp > startHitPoints ? startHitPoints : hp;
+            healthBar.reduce(hp, startHitPoints);
         }
     }
 }
