@@ -14,6 +14,8 @@ namespace Scripts
     /// </summary>
     public class RunGameManager : MonoBehaviour
     {
+        [SerializeField] private SoundHandling soundHandling;
+        
         [SerializeField] private RunCharacterController runCharacterController;
         [SerializeField] private RunGameController gameController;
         [SerializeField] private ScreenHider screenHider;
@@ -42,6 +44,7 @@ namespace Scripts
             // when the game has started, we're seeking if the character bounding box hit a ground tile
             if (hasStarted && gameController.TileRows.Any(IntersectionHit))
             {
+                soundHandling.CrashSound();
                 // A coroutine will be discussed a bit later in the lecture, but it's exactly what the name says:
                 // 
                 // A coroutine runs next to the game loop and is useful for all operations that have a well known time box.

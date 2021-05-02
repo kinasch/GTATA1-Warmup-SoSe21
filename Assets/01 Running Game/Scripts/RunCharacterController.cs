@@ -17,6 +17,8 @@ namespace Scripts
         /// event when it does so
         /// </summary>
         public Action onJump;
+
+        [SerializeField] private SoundHandling soundHandling;
         
         [SerializeField] private float jumpHeight;
         [SerializeField] private float jumpDuration;
@@ -47,6 +49,7 @@ namespace Scripts
             if (jumpKeys.Any(x => Input.GetKeyDown(x)))
             {   // first we disable the jump, then start the Coroutine that handles the jump and invoke the event
                 canJump = false;
+                soundHandling.JumpSound();
                 StartCoroutine(JumpRoutine());
                 onJump?.Invoke();
             }
@@ -87,6 +90,7 @@ namespace Scripts
                 // we enable jumping again after we're almost done to remove some "stuck" behaviour when landing down
                 if (sampleTime > 0.95f)
                 {
+                    soundHandling.LandingSound();
                     canJump = true;
                 }
                 // yield return null waits a single frame
