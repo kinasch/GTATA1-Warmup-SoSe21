@@ -26,7 +26,7 @@ public class UpgradeController : MonoBehaviour
     // Spawn an Upgrade every frame with a chance of 0.02%.
     void Update()
     {
-        if (Random.value * 10000 > 9998f)
+        if (Random.value * 10000 > 9995f)
         {
             SpawnUpgrade(upgradePrefab);
         }

@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00af7f4af2724bf18e41c4ef06a90e69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialVelocity: {x: 0.49788988, y: 0.2668429, z: 0}
+  initialVelocity: {x: -5.244501, y: 2.8921978, z: 0}
   movement: {fileID: 8654593226449467893}
   bulletSpeed: 10
   lifetime: 1.5
