@@ -6,9 +6,10 @@ public class Upgrade : MonoBehaviour
 {
     [SerializeField] public Sprite[] upgradeCollection;
 
+    // Store the name of the effect.
     private string effectName;
     private static UpgradeController upgradeController;
-    
+
     void OnEnable()
     {
         float decider = UnityEngine.Random.value;
@@ -26,7 +27,7 @@ public class Upgrade : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    /// <returns>Name of the current Upgrade's effect</returns>
     public string GetEffect()
     {
         return effectName;

@@ -28,8 +28,9 @@ namespace Scripts
             {
                 RebuildStarfield();
             }
+
             // add offset based on the velocity (not on world-space coordinates, which are modulo'd
-            offset += ship.movementObject.CurrentVelocity*10;
+            offset += ship.movementObject.CurrentVelocity * 10;
             // set the value in the shader
             targetRenderer.material.SetVector(Offset, offset / 100);
         }

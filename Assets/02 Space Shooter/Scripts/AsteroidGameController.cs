@@ -19,7 +19,9 @@ namespace Scripts
         [SerializeField] private Transform spawnAnchor;
 
         private List<Asteroid> activeAsteroids;
+
         private Random random;
+
         // This asteroid saves the last asteroid the player was hit by to prevent multiple hit points being subtracted
         private Asteroid hitDetectionWithPlayer;
 
@@ -67,7 +69,7 @@ namespace Scripts
 
                 newObject.transform.position = RandomPointInBounds(inLocation);
             }
-            
+
             // take parent velocity into consideration
             if (parent != null)
             {
@@ -100,7 +102,7 @@ namespace Scripts
             {
                 return;
             }
-            
+
             // otherwise remove the asteroid from the tracked asteroid
             activeAsteroids.Remove(asteroid);
             var bounds = asteroid.spriteRenderer.bounds;
@@ -125,42 +127,41 @@ namespace Scripts
             {
                 SpawnAsteroid(prefabs, bounds);
             }
-        
+
             // oh, also get rid of the laser now
             Destroy(laser.gameObject);
         }
-        
-        /// 
-        /// This method is very similar to the method LaserInteraction
+
+        /// <summary>
+        /// This method is very similar to the method LaserInteraction.
         /// 
         /// Checks if the player sprite is intersecting with any asteroid sprite
         /// and returns the result to the player
-        /// 
+        /// </summary>
         public bool PlayerIntersection(SpriteRenderer player)
         {
             // go through all asteroids, check if they intersect with the player and stop after the first
             var asteroid = activeAsteroids
                 .FirstOrDefault(x => x.GetComponent<SpriteRenderer>().bounds.Intersects(player.bounds));
-            
+
             // premature exit: the player hasn't hit anything
             if (asteroid == null)
             {
+                // If the player does not hit an asteroid reset the multiple hit prevention variable.
                 hitDetectionWithPlayer = null;
                 return false;
             }
+
             // premature exit: the player hit the same asteroid in a row
             if (asteroid == hitDetectionWithPlayer)
             {
                 return false;
             }
-            hitDetectionWithPlayer = asteroid;
-            
-            return true;
-        }
 
-        public void ShipIntersection(SpriteRenderer ship)
-        {
-            // :thinking: this could be solved very similarly to a laser intersection
+            // Store the asteroid the player hit the last time.
+            hitDetectionWithPlayer = asteroid;
+
+            return true;
         }
 
         private static float RandomPointOnLine(float min, float max)
@@ -190,6 +191,9 @@ namespace Scripts
             return maximum;
         }
 
+        /// <summary>
+        /// Returns the list of currently active asteroids.
+        /// </summary>
         public List<Asteroid> GetActiveAsteroids()
         {
             return activeAsteroids;

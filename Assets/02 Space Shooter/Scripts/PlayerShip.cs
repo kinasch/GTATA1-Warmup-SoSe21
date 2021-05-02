@@ -19,8 +19,14 @@ namespace Scripts
         public SpriteRenderer shipSprite;
 
         private static AsteroidGameController _runGameController;
+
+        // Time the ship can not get any damage in seconds.
         private float invincibilityTime = 1f;
+
+        // Determines if the ship can take damage.
         private bool isInvincible = false;
+
+        // Stores the ship's hit points, the amount of times it can be it before the game ends.
         private int hp;
 
         private void Start()
@@ -31,18 +37,21 @@ namespace Scripts
 
         private void LateUpdate()
         {
+            // Checks after every Update if the player ship hit any asteroid.
             if (_runGameController.PlayerIntersection(shipSprite) && !isInvincible)
             {
+                // The ship's hit points are reduced, the health bar is updated and the ship is invincible for a set amount of time.
                 hp--;
-
                 healthBar.reduce(hp, startHitPoints);
-
                 StartCoroutine(Invincibility());
             }
-            
+
             upgradeController.PlayerIntersection(shipSprite);
         }
 
+        /// <summary>
+        /// Disables the ability to take damage from any asteroid for a set amount of time.
+        /// </summary>
         private IEnumerator Invincibility()
         {
             isInvincible = true;
@@ -56,11 +65,17 @@ namespace Scripts
             isInvincible = false;
         }
 
+
+        /// <returns>ship hit points</returns>
         public int GetHitPoints()
         {
             return hp;
         }
 
+        /// <summary>
+        /// This function increases the current hit points, with a maximum value of the hit points at the beginning of the game.
+        /// </summary>
+        /// <param name="additionalHP"></param>
         public void AddToHitPoints(int additionalHP)
         {
             hp += additionalHP;

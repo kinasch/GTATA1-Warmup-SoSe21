@@ -5,27 +5,27 @@ Shader "Unlit/Starfield"
         _MainTex ("Texture", 2D) = "white" {}
         _Offset ("Rendering Offset", Vector) = (0, 0, 0, 0)
         [HDR] _Color ("Grading Color", Color) = (0, 0, 0, 0)
-        
+
         [Space]
         _Iterations ("Volumetric Iterations", Range(0, 50)) = 17
         _VolumetricSteps ("Volumetric Steps", Range(0, 50)) = 20
         _VolumetricStepSize ("Volumetric Step Size", Range(0, 1)) = 0.2
         _FormularParameter ("Formular Parameter", Range(0, 1)) = 0.53
-        
+
         [Space]
         _Zoom ("Zoom", Range(0, 10)) = 0.8
         _Tile ("Tiling", Range(0, 10)) = 0.85
         _Speed ("Speed", Range(0, 0.1)) = 0.001
-        
+
         [Space]
         _Brightness ("Brightness", Range(0, 0.01)) = 0.0015
         _DarkMatter ("Dark Matter", Range(0, 0.5)) = 0.3
         _DistFading ("Distance Fading", Range(0, 1)) = 0.73
         _Saturation ("Saturation", Range(0, 1.5)) = 0.85
-        
+
     }
-    
-    
+
+
     SubShader
     {
         Tags
@@ -76,22 +76,22 @@ Shader "Unlit/Starfield"
             float _VolumetricSteps;
             float _VolumetricStepSize;
             float _FormularParameter;;
-                
+
             float _Zoom;
             float _Tile;
             float _Speed;
-                
+
             float _Brightness;
             float _DarkMatter;
             float _DistFading;
             float _Saturation;
-        
+
 
             void mainImage(out float4 fragColor, in float2 fragCoord, in float2 offset)
             {
                 //get coords and direction
                 const float2 resolution = _MainTex_TexelSize.xy * _MainTex_TexelSize.zw;
-   
+
                 float2 uv = fragCoord.xy / resolution.xy - .5;
                 uv.y *= resolution.y / resolution.x;
                 const float3 direction = float3(uv * _Zoom, 0.1);
@@ -113,7 +113,7 @@ Shader "Unlit/Starfield"
                         a += abs(length(p) - pa); // absolute sum of average change
                         pa = length(p);
                     }
-                    float dm = max(0.,_DarkMatter - a * a * .001); //dark matter
+                    float dm = max(0., _DarkMatter - a * a * .001); //dark matter
                     a *= a * a; // add contrast
                     if (r > 6) fade *= 1. - dm; // dark matter, don't render near
                     v += fade;
@@ -121,7 +121,7 @@ Shader "Unlit/Starfield"
                     fade *= _DistFading; // distance fading
                     s += _VolumetricStepSize;
                 }
-                v = lerp(float3(length(v).xxx), v,_Saturation); //color adjust
+                v = lerp(float3(length(v).xxx), v, _Saturation); //color adjust
                 fragColor = float4(v * .01, 1.);
             }
 
