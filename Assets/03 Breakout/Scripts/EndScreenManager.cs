@@ -6,13 +6,12 @@ using UnityEngine.UI;
 
 public class EndScreenManager : MonoBehaviour
 {
-
     [SerializeField] private Image endScreenBackground;
     [SerializeField] private Text endScreenText;
     [SerializeField] private GameObject endScreenButtons;
     [SerializeField] private Transform bricks;
 
-    // Start is called before the first frame update
+    // Set all the end screen components' alpha to 0, making them see-through.
     void Start()
     {
         endScreenButtons.SetActive(false);
@@ -24,25 +23,30 @@ public class EndScreenManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Win if all asteroids are destroyed
+        // Win if all bricks are destroyed.
         if (CountChildren(bricks) == 0)
         {
             EndScreenWin();
         }
-
-        // TODO: Buttons with Levelselect
     }
-    
+
+    /// <param name="a">Transform object the amount of children are to be determined of</param>
+    /// <returns>Amount of children of the given Transform</returns>
     int CountChildren(Transform a)
     {
         int childCount = 0;
         foreach (Transform b in a)
         {
-            childCount ++;
+            childCount++;
         }
+
         return childCount;
     }
-    
+
+    /// <summary>
+    /// If the Game is won, activate all the end screen components:
+    /// Background in green, text to "You've won!".
+    /// </summary>
     public void EndScreenWin()
     {
         Time.timeScale = 0f;
@@ -52,6 +56,10 @@ public class EndScreenManager : MonoBehaviour
         endScreenButtons.SetActive(true);
     }
 
+    /// <summary>
+    /// If the Game is lost, activate all the end screen components:
+    /// Background in red, text to "You've lost!".
+    /// </summary>
     public void EndScreenLose()
     {
         Time.timeScale = 0f;
@@ -61,12 +69,21 @@ public class EndScreenManager : MonoBehaviour
         endScreenButtons.SetActive(true);
     }
 
+    /// <summary>
+    /// Restart the current Scene.
+    /// Requires the Scene to be in the build settings.
+    /// </summary>
     public void RestartScene()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    /// <summary>
+    /// Load another Scene.
+    /// Requires the Scene to be in the build settings.
+    /// </summary>
+    /// <param name="otherLevelName">Name of the other level.</param>
     public void LoadOtherLevel(string otherLevelName)
     {
         Time.timeScale = 1;

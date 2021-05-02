@@ -25,14 +25,14 @@ namespace Scripts
             // set the pedal graphic and collider size based on the pedal size property
             rectTransform.sizeDelta = new Vector2(pedalSize, rectTransform.sizeDelta.y);
             collider.size = new Vector2(pedalSize, collider.size.y);
-            
+
             var transformPosition = transform.position;
             var pedalPosition = transformPosition;
             var mousePosition = Input.mousePosition;
             // calculate the distance on the horizontal axis between mouse and center of the pedal
             var mouseDistance = pedalPosition.x - mousePosition.x;
             var direction = Mathf.Sign(mouseDistance);
-            
+
             var newPositionX = direction > 0
                 ? Mathf.Max(mousePosition.x, pedalPosition.x - speed * Time.deltaTime)
                 : Mathf.Min(mousePosition.x, pedalPosition.x + speed * Time.deltaTime);
@@ -44,14 +44,14 @@ namespace Scripts
             // if there are no balls left, the game is lost
             if (balls.Count == 0)
             {
-                // maybe this is a good entry point for a loss system, similarly no bricks -> win
                 Debug.Log("Game Over!");
                 endScreenManager.EndScreenLose();
             }
         }
 
         private void OnEnable()
-        {   // set some references once
+        {
+            // set some references once
             rigidBody = GetComponent<Rigidbody2D>();
             collider = GetComponent<CapsuleCollider2D>();
             rectTransform = GetComponent<RectTransform>();
@@ -87,12 +87,14 @@ namespace Scripts
                         {
                             tempBall.transform.localScale *= 2f;
                         }
+
                         break;
                     case UpgradeType.SmallerBall:
                         foreach (Ball tempBall in balls)
                         {
                             tempBall.transform.localScale *= 0.5f;
                         }
+
                         break;
                 }
 

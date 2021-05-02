@@ -16,7 +16,8 @@ namespace Scripts
         public UpgradeType Type => upgradeType;
 
         private void OnEnable()
-        {   // dice the type, set the appropriate sprite
+        {
+            // dice the type, set the appropriate sprite
             RandomizeType();
             GetComponent<Image>().sprite = spriteAssignment.FirstOrDefault(x => x.type == upgradeType)?.sprite;
         }
@@ -46,13 +47,13 @@ namespace Scripts
                 upgradeType = UpgradeType.SmallerPedal;
                 return;
             }
-            
+
             if (number < 0.6f)
             {
                 upgradeType = UpgradeType.SmallerBall;
                 return;
             }
-            
+
             if (number < 0.8f)
             {
                 upgradeType = UpgradeType.BiggerBall;
