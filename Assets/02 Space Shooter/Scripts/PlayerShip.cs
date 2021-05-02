@@ -14,6 +14,7 @@ namespace Scripts
     {
         [SerializeField] private int startHitPoints = 50;
         [SerializeField] private HealthBar healthBar;
+        [SerializeField] private UpgradeController upgradeController;
         public MovementObject movementObject;
         public SpriteRenderer shipSprite;
 
@@ -38,6 +39,8 @@ namespace Scripts
 
                 StartCoroutine(Invincibility());
             }
+            
+            upgradeController.PlayerIntersection(shipSprite);
         }
 
         private IEnumerator Invincibility()
@@ -56,6 +59,11 @@ namespace Scripts
         public int GetHitPoints()
         {
             return hp;
+        }
+
+        public void AddToHitPoints(int additionalHP)
+        {
+            hp += additionalHP;
         }
     }
 }

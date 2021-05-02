@@ -23,6 +23,8 @@ namespace Scripts
 
         private void Update()
         {
+            // Destroy the Upgrade after it is way out of the screen to secure the winning conditions.
+            // See the winning in EndScreenManager for more details.
             if (transform.position.y <= -100)
             {
                 Destroy(this.gameObject);
